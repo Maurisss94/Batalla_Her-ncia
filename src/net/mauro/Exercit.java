@@ -89,12 +89,14 @@ public class Exercit {
     public final void formar(final Camp pissarra) {
 
       double y = 0.0;
-      double x = 0.0;
+      double x = soldatsExercit.get(0).getImatge().getWidth();
 
         if (this.ubicacio == 1) {
 
+
           soldatsExercit.get(0).vesA(0, 0);
-            for (int i = 0; i < soldatsExercit.size(); i++) {
+          soldatsExercit.get(soldatsExercit.size()-1).vesA(0, pissarra.getHEIGHT()/2-50);
+            for (int i = 0; i < soldatsExercit.size()-1; i++) {
 
 
                   if (y < pissarra.getHEIGHT() - soldatsExercit
@@ -119,10 +121,12 @@ public class Exercit {
 
         if (this.ubicacio == 2) {
 
-          double x2 = pissarra.getWIDTH()-soldatsExercit.get(0).getImatge().getWidth();
+          double x2 = pissarra.getWIDTH()-soldatsExercit.get(0).getImatge().getWidth()*2;
 
           soldatsExercit.get(0).vesA(x2, 0);
-      for (int i = 0; i < soldatsExercit.size(); i++) {
+          soldatsExercit.get(soldatsExercit.size()-1).vesA(pissarra.getWIDTH()-soldatsExercit.get(0)
+              .getImatge().getWidth(), pissarra.getHEIGHT()/2-50);
+      for (int i = 0; i < soldatsExercit.size()-1; i++) {
 
 
 
@@ -175,9 +179,14 @@ public class Exercit {
             int mou = rn.nextInt(soldatsExercit.size());
 
 
+
             if (!soldatsExercit.get(mou)
                 .soldatArriba(pissarra, this.ubicacio)) {
                   soldatsExercit.get(mou).mouSoldat();
+                  if(soldatsExercit.get(soldatsExercit.size()-1).isHaArribat()){
+                    soldatsExercit.get(soldatsExercit.size()-1).setVelocitat(10);
+                  }
+
 
                 } else {
 
@@ -195,13 +204,13 @@ public class Exercit {
      */
     public final boolean soldatsArriben() {
       int cont = 0;
-      for (int i = 0; i < soldatsExercit.size(); i++) {
+      for (int i = 0; i < soldatsExercit.size()-1; i++) {
           if (soldatsExercit.get(i).isHaArribat()) {
               cont++;
           }
       }
 
-      if (cont == soldatsExercit.size()) {
+      if (cont == soldatsExercit.size()-1) {
 
          return true;
      }
@@ -231,7 +240,7 @@ public class Exercit {
      */
     public final void comprovarMorts(final ArrayList<SoldatGeneral> atacats) {
 
-      int vides=0;
+      int vides;
       for (int i = atacats.size() - 1; i >= 0; i--) {
 
         vides= atacats.get(i).getVides();

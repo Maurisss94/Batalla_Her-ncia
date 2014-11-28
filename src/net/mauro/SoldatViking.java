@@ -9,4 +9,5 @@ public class SoldatViking extends SoldatGeneral{
     this.vides = vides;
   }
 
+
 }

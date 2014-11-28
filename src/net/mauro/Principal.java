@@ -14,7 +14,7 @@ public final class Principal extends GraphicsProgram {
   /**
    * Numero maxim de soldats.
    */
-  private static final int NUMERO_SOLDATS = 22;
+  private static final int NUMERO_SOLDATS = 24;
   /**
    * Alçada del camp.
    */
@@ -35,7 +35,7 @@ public final class Principal extends GraphicsProgram {
       * @param rutaImatge ruta de on es troba la imatge del soldat.
       * @return un Array de Soldats.
       */
-    public ArrayList<SoldatGeneral> crearSoldats(final String rutaImatge, String rutaImatge2, String rutaImatge3) {
+    public ArrayList<SoldatGeneral> crearSoldats(final String rutaImatge, String rutaImatge2, String rutaImatge3, String rutaImatge4) {
 
         ArrayList<SoldatGeneral> soldats = new ArrayList<SoldatGeneral>();
 
@@ -51,9 +51,14 @@ public final class Principal extends GraphicsProgram {
               SoldatVides soldat2 = new SoldatVides(new GImage(rutaImatge2), 3);
               soldats.add(soldat2);
             }
-            if((i >= 19)&&(i<=22)){
-              SoldatViking soldat3 = new SoldatViking(new GImage(rutaImatge3),4);
+            if((i >= 19)&&(i<=21)){
+              SoldatViking soldat3 = new SoldatViking(new GImage(rutaImatge3),5);
               soldats.add(soldat3);
+            }
+            if((i>22)&&(i<=24)){
+              Rei soldat4 = new Rei(new GImage(rutaImatge4));
+              soldats.add(soldat4);
+
             }
 
 
@@ -161,8 +166,8 @@ public final class Principal extends GraphicsProgram {
 
         this.setSize((int) campBatalla.getWIDTH(),
            (int) campBatalla.getHEIGHT());
-        Exercit exercit1 = new Exercit(crearSoldats("soldat.png", "vides.png", "viking.png"), 1);
-        Exercit exercit2 = new Exercit(crearSoldats("soldat2.png", "vides2.png", "viking2.png"), 2);
+        Exercit exercit1 = new Exercit(crearSoldats("soldat.png", "vides.png", "viking.png", "rei.png"), 1);
+        Exercit exercit2 = new Exercit(crearSoldats("soldat2.png", "vides2.png", "viking2.png", "rei2.png"), 2);
         campBatalla.afegirExercits(exercit1);
         campBatalla.afegirExercits(exercit2);
         ubicarExercits();

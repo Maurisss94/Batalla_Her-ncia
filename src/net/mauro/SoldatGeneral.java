@@ -91,7 +91,7 @@ public abstract class SoldatGeneral {
    * @param x Posicio x del soldat.
    * @param y Posicio y del soldat.
    */
-  public final void vesA(final double x, final double y) {
+  public void vesA(final double x, final double y) {
 
     imatge.setLocation(x, y);
   }
@@ -101,7 +101,7 @@ public abstract class SoldatGeneral {
    * @param ubicacio ubicacio del exercit.
    * @return retorna true o false depen si ha arribat el soldat.
    */
-  public final boolean soldatArriba(final Camp pissarra, final int ubicacio) {
+  public  boolean soldatArriba(final Camp pissarra, final int ubicacio) {
 
     double posicioSoldat = this.getImatge().getX();
     double ampladaSoldat = this.getImatge().getWidth();

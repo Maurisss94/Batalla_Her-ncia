@@ -15,4 +15,6 @@ public class SoldatVides extends SoldatGeneral{
 
 
 
+
+
 }
