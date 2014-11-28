@@ -183,9 +183,10 @@ public class Exercit {
             if (!soldatsExercit.get(mou)
                 .soldatArriba(pissarra, this.ubicacio)) {
                   soldatsExercit.get(mou).mouSoldat();
-                  if(soldatsExercit.get(soldatsExercit.size()-1).isHaArribat()){
-                    soldatsExercit.get(soldatsExercit.size()-1).setVelocitat(10);
-                  }
+                  soldatsExercit.get(soldatsExercit.size()-1).setVelocitat(10);
+                  soldatsExercit.get(soldatsExercit.size()-1).mouSoldat();
+
+
 
 
                 } else {

@@ -24,7 +24,7 @@ public class Rei extends SoldatGeneral{
     double alçadaSoldat = this.getImatge().getHeight();
 
     if (ubicacio == 1) {
-      if (posicioSoldat > pissarra.getHEIGHT() - alçadaSoldat-50) {
+      if ((posicioSoldat <= pissarra.getHEIGHT() - alçadaSoldat-50) || (posicioSoldat >= 0+ alçadaSoldat)){
         this.haArribat = true;
         return true;
       } else {
@@ -32,7 +32,7 @@ public class Rei extends SoldatGeneral{
         return false;
       }
     } else {
-      if (posicioSoldat > pissarra.getHEIGHT() - alçadaSoldat-50) {
+      if ((posicioSoldat >= pissarra.getHEIGHT() - alçadaSoldat-50) ||(posicioSoldat >= 0+ alçadaSoldat)) {
         this.haArribat = true;
         return true;
       } else {
