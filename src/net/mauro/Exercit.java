@@ -179,12 +179,9 @@ public class Exercit {
             int mou = rn.nextInt(soldatsExercit.size());
 
 
-
             if (!soldatsExercit.get(mou)
                 .soldatArriba(pissarra, this.ubicacio)) {
                   soldatsExercit.get(mou).mouSoldat();
-                  soldatsExercit.get(soldatsExercit.size()-1).setVelocitat(10);
-                  soldatsExercit.get(soldatsExercit.size()-1).mouSoldat();
 
 
 
@@ -205,13 +202,13 @@ public class Exercit {
      */
     public final boolean soldatsArriben() {
       int cont = 0;
-      for (int i = 0; i < soldatsExercit.size()-1; i++) {
+      for (int i = 0; i < soldatsExercit.size(); i++) {
           if (soldatsExercit.get(i).isHaArribat()) {
               cont++;
           }
       }
 
-      if (cont == soldatsExercit.size()-1) {
+      if (cont == soldatsExercit.size()) {
 
          return true;
      }

@@ -2,59 +2,36 @@ package net.mauro;
 
 import acm.graphics.GImage;
 
-public class Rei extends SoldatGeneral{
+public class Rei extends SoldatGeneral {
 
   private static final double PAUSA = 10;
+  boolean reiArriba = false;
 
   public Rei(GImage imatgeSoldat) {
     super(imatgeSoldat);
   }
 
-  public final void mouSoldat() {
-
+  public void mouSoldat() {
 
     this.getImatge().move(0, velocitat);
     this.getImatge().pause(PAUSA);
 
   }
 
-  public  boolean soldatArriba(final Camp pissarra, final int ubicacio) {
+  public boolean soldatArriba(final Camp pissarra, final int ubicacio) {
 
-    double posicioSoldat = this.getImatge().getY();
-    double alçadaSoldat = this.getImatge().getHeight();
+    double posicioY = this.getImatge().getY();
+    double alçada = this.getImatge().getHeight();
 
-    if (ubicacio == 1) {
-      if ((posicioSoldat <= pissarra.getHEIGHT() - alçadaSoldat-50) || (posicioSoldat >= 0+ alçadaSoldat)){
-        this.haArribat = true;
-        return true;
-      } else {
-        this.haArribat = false;
-        return false;
-      }
+    if ((posicioY >= pissarra.getHEIGHT() - alçada + 5) || (posicioY <= 0)) {
+      this.setHaArribat(true);
+      return true;
     } else {
-      if ((posicioSoldat >= pissarra.getHEIGHT() - alçadaSoldat-50) ||(posicioSoldat >= 0+ alçadaSoldat)) {
-        this.haArribat = true;
-        return true;
-      } else {
-        this.haArribat = false;
-        return false;
-      }
+      this.setHaArribat(false);
+      return false;
     }
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
