@@ -12,6 +12,10 @@ public class Exercit {
 
 
   /**
+   * Separació per la col·locació dels soldats.
+   */
+  private static final int SEPARACIO = 50;
+  /**
    * variable que conté la velocitat dels soldats.
    */
   private static final int VELOCITAT_SOLDAT = 10;
@@ -39,7 +43,8 @@ public class Exercit {
      * @param soldats array de soldats.
      * @param ubicacioExercit ubicacio dels exercits
      */
-    public Exercit(final ArrayList<SoldatGeneral> soldats, final int ubicacioExercit) {
+    public Exercit(final ArrayList<SoldatGeneral> soldats,
+        final int ubicacioExercit) {
         this.soldatsExercit = soldats;
         this.ubicacio = ubicacioExercit;
     }
@@ -95,8 +100,9 @@ public class Exercit {
 
 
           soldatsExercit.get(0).vesA(0, 0);
-          soldatsExercit.get(soldatsExercit.size()-1).vesA(0, pissarra.getHEIGHT()/2-50);
-            for (int i = 0; i < soldatsExercit.size()-1; i++) {
+          soldatsExercit.get(soldatsExercit.size() - 1)
+          .vesA(0, pissarra.getHEIGHT() / 2 - SEPARACIO);
+            for (int i = 0; i < soldatsExercit.size() - 1; i++) {
 
 
                   if (y < pissarra.getHEIGHT() - soldatsExercit
@@ -121,12 +127,14 @@ public class Exercit {
 
         if (this.ubicacio == 2) {
 
-          double x2 = pissarra.getWIDTH()-soldatsExercit.get(0).getImatge().getWidth()*2;
+          double x2 = pissarra.getWIDTH() - soldatsExercit.get(0)
+              .getImatge().getWidth() * 2;
 
           soldatsExercit.get(0).vesA(x2, 0);
-          soldatsExercit.get(soldatsExercit.size()-1).vesA(pissarra.getWIDTH()-soldatsExercit.get(0)
-              .getImatge().getWidth(), pissarra.getHEIGHT()/2-50);
-      for (int i = 0; i < soldatsExercit.size()-1; i++) {
+          soldatsExercit.get(soldatsExercit.size() - 1)
+          .vesA(pissarra.getWIDTH() - soldatsExercit.get(0)
+              .getImatge().getWidth(), pissarra.getHEIGHT() / 2 - SEPARACIO);
+      for (int i = 0; i < soldatsExercit.size() - 1; i++) {
 
 
 
@@ -223,11 +231,11 @@ public class Exercit {
         if (this.getUbicacio() == 1) {
           soldatsExercit.get(i).setVelocitat(VELOCITAT_SOLDAT);
           soldatsExercit.get(i);
-          SoldatGeneral.setPausa(10);
+          SoldatGeneral.setPausa(VELOCITAT_SOLDAT);
         } else {
           soldatsExercit.get(i).setVelocitat(-VELOCITAT_SOLDAT);
           soldatsExercit.get(i);
-          SoldatGeneral.setPausa(10);
+          SoldatGeneral.setPausa(VELOCITAT_SOLDAT);
 
         }
       }
@@ -241,19 +249,19 @@ public class Exercit {
       int vides;
       for (int i = atacats.size() - 1; i >= 0; i--) {
 
-        vides= atacats.get(i).getVides();
+        vides = atacats.get(i).getVides();
 
         for (int j = this.soldatsExercit.size() - 1; j >= 0; j--) {
 
           if (atacats.get(i).morts(soldatsExercit.get(j))) {
 
-            if(vides == 0){
+            if (vides == 0) {
 
               atacats.get(i).getImatge().getParent()
               .remove(atacats.get(i).getImatge());
               atacats.remove(i);
               break;
-            }else{
+            } else {
 
               atacats.get(i).setVides(vides--);
             }

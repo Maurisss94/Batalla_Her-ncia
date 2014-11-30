@@ -2,9 +2,19 @@ package net.mauro;
 
 import acm.graphics.GImage;
 
-public class SoldatVides extends SoldatGeneral{
+/**
+ * Classe del Soldat amb vides, que hereda de SoldatGeneral.
+ * @author mauro
+ *
+ */
+public class SoldatVides extends SoldatGeneral {
 
-  public SoldatVides(GImage imatgeSoldat, int vides) {
+  /**
+   * Constructor del soldat amb vides.
+   * @param imatgeSoldat Imatge del soldat amb vides.
+   * @param vides Vides del soldat.
+   */
+  public SoldatVides(final GImage imatgeSoldat, final int vides) {
     super(imatgeSoldat);
     this.vides = vides;
   }

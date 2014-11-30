@@ -12,6 +12,31 @@ import acm.program.GraphicsProgram;
 public final class Principal extends GraphicsProgram {
 
   /**
+   * Vides que te el soldat viking.
+   */
+  private static final int VIDES_SOLDAT_VIKING = 5;
+
+  /**
+   * Vides que te el soldat en vides.
+   */
+  private static final int VIDES_SOLDAT_VIDES = 3;
+  /**
+   * Posició del soldat rei.
+   */
+  private static final int SOLDAT_REI = 23;
+  /**
+   * Posició del soldat viking.
+   */
+  private static final int SOLDAT_VIKING = 21;
+  /**
+   * Posició del soldat vides.
+   */
+  private static final int SOLDAT_VIDES = 18;
+  /**
+   * Posició dels soldats base.
+   */
+  private static final int SOLDATS_BASE = 12;
+  /**
    * Numero maxim de soldats.
    */
   private static final int NUMERO_SOLDATS = 24;
@@ -33,29 +58,36 @@ public final class Principal extends GraphicsProgram {
      /**
       * metode que crea els soldats.
       * @param rutaImatge ruta de on es troba la imatge del soldat.
+      * @param rutaImatge2 ruta de on es troba el soldat base.
+      * @param rutaImatge3 ruta de on es troba el soldat viking.
+      * @param rutaImatge4 ruta de on es troba el soldat vides.
       * @return un Array de Soldats.
       */
-    public ArrayList<SoldatGeneral> crearSoldats(final String rutaImatge, String rutaImatge2, String rutaImatge3, String rutaImatge4) {
+    public ArrayList<SoldatGeneral> crearSoldats(final String rutaImatge,
+        final String rutaImatge2,
+        final String rutaImatge3, final String rutaImatge4) {
 
         ArrayList<SoldatGeneral> soldats = new ArrayList<SoldatGeneral>();
 
         for (int i = 0; i < NUMERO_SOLDATS; i++) {
 
-          if(i< 12){
+          if (i < SOLDATS_BASE) {
             Soldat soldat1 = new Soldat(new GImage(rutaImatge));
             soldats.add(soldat1);
           }
 
 
-            if((i > 13)&&(i<=18)){
-              SoldatVides soldat2 = new SoldatVides(new GImage(rutaImatge2), 3);
+            if ((i > SOLDATS_BASE) && (i <= SOLDAT_VIDES)) {
+              SoldatVides soldat2 = new SoldatVides(new GImage(rutaImatge2),
+                  VIDES_SOLDAT_VIDES);
               soldats.add(soldat2);
             }
-            if((i >= 19)&&(i<=21)){
-              SoldatViking soldat3 = new SoldatViking(new GImage(rutaImatge3),5);
+            if ((i >= SOLDAT_VIDES) && (i < SOLDAT_VIKING)) {
+              SoldatViking soldat3 = new SoldatViking(new GImage(rutaImatge3),
+                  VIDES_SOLDAT_VIKING);
               soldats.add(soldat3);
             }
-            if((i>22)&&(i<=24)){
+            if ((i > SOLDAT_VIKING) && (i < SOLDAT_REI)) {
               Rei soldat4 = new Rei(new GImage(rutaImatge4));
               soldats.add(soldat4);
 
@@ -95,7 +127,8 @@ public final class Principal extends GraphicsProgram {
         for (int i = 0; i < exercits.size(); i++) {
 
 
-            ArrayList<SoldatGeneral> arraysoldats = exercits.get(i).soldatsExercit;
+            ArrayList<SoldatGeneral> arraysoldats = exercits.get(i)
+                .soldatsExercit;
             for (int j = 0; j < arraysoldats.size(); j++) {
 
                 this.add(arraysoldats.get(j).getImatge());
@@ -166,8 +199,10 @@ public final class Principal extends GraphicsProgram {
 
         this.setSize((int) campBatalla.getWIDTH(),
            (int) campBatalla.getHEIGHT());
-        Exercit exercit1 = new Exercit(crearSoldats("soldat.png", "vides.png", "viking.png", "rei.png"), 1);
-        Exercit exercit2 = new Exercit(crearSoldats("soldat2.png", "vides2.png", "viking2.png", "rei2.png"), 2);
+        Exercit exercit1 = new Exercit(crearSoldats(
+            "soldat.png", "vides.png", "viking.png", "rei.png"), 1);
+        Exercit exercit2 = new Exercit(crearSoldats(
+            "soldat2.png", "vides2.png", "viking2.png", "rei2.png"), 2);
         campBatalla.afegirExercits(exercit1);
         campBatalla.afegirExercits(exercit2);
         ubicarExercits();

@@ -3,40 +3,78 @@ package net.mauro;
 import acm.graphics.GImage;
 import acm.graphics.GRectangle;
 
+/**
+ * Classe abstracte del Soldat General.
+ * @author mauro
+ *
+ */
 public abstract class SoldatGeneral {
 
-  private static double PAUSA;
-  GImage imatge;
-  int vides;
-  int velocitat;
-  boolean haArribat;
+  /**
+   * Variable de pausa del moviment del soldat.
+   */
+  private static double pausa;
+  /**
+   * Imatge del soldat.
+   */
+  private GImage imatge;
+  /**
+   * Vides dels soldats.
+   */
+  protected int vides;
+  /**
+   * Velocitat com es mouen els soldats.
+   */
+  protected int velocitat;
+  /**
+   * booleà que ens indica si el soldat ha arribat.
+   */
+  private boolean haArribat;
 
-  public SoldatGeneral(GImage imatgeSoldat){
+  /**
+   * Constructor del SoldatGeneral.
+   * @param imatgeSoldat imatge del soldat.
+   */
+  public SoldatGeneral(final GImage imatgeSoldat) {
 
     this.imatge = imatgeSoldat;
 
   }
 
 
+  /**
+   * Getter de la pausa del soldat.
+   * @return la pausa.
+   */
   public static double getPausa() {
-    return PAUSA;
+    return pausa;
   }
 
 
-  public static void setPausa(double pausa) {
-    PAUSA = pausa;
+  /**
+   * Setter de la pausa.
+   * @param pausaS del soldat.
+   */
+  public static void setPausa(final double pausaS) {
+    SoldatGeneral.pausa = pausaS;
   }
 
 
-
-
-  public int getVides() {
+  /**
+   * Getter de les vides.
+   * @return les vides del soldat.
+   */
+  public final int getVides() {
     return vides;
   }
 
 
-  public void setVides(int vides) {
-    this.vides = vides;
+  /**
+   * Setter de les vides del soldat.
+   * @param videsS del soldat.
+   */
+  public void setVides(final int videsS) {
+    this.vides = videsS;
   }
 
 
@@ -91,7 +129,7 @@ public abstract class SoldatGeneral {
    * @param x Posicio x del soldat.
    * @param y Posicio y del soldat.
    */
-  public void vesA(final double x, final double y) {
+  public final void vesA(final double x, final double y) {
 
     imatge.setLocation(x, y);
   }
@@ -101,7 +139,7 @@ public abstract class SoldatGeneral {
    * @param ubicacio ubicacio del exercit.
    * @return retorna true o false depen si ha arribat el soldat.
    */
-  public  boolean soldatArriba(final Camp pissarra, final int ubicacio) {
+  public boolean soldatArriba(final Camp pissarra, final int ubicacio) {
 
     double posicioSoldat = this.getImatge().getX();
     double ampladaSoldat = this.getImatge().getWidth();
@@ -125,11 +163,14 @@ public abstract class SoldatGeneral {
     }
 
   }
+  /**
+   * Metode de moure el soldat.
+   */
   public void mouSoldat() {
 
 
     this.getImatge().move(velocitat, 0);
-    this.getImatge().pause(PAUSA);
+    this.getImatge().pause(pausa);
 
   }
 

@@ -104,11 +104,11 @@ public class Camp {
      */
     public final  boolean shaAcabat() {
 
-       if(exercits.get(0).soldatsExercit.size() == 0){
+       if (exercits.get(0).soldatsExercit.size() == 0) {
          return true;
-       }else if(exercits.get(1).soldatsExercit.size() == 0){
+       } else if (exercits.get(1).soldatsExercit.size() == 0) {
          return true;
-       }else{
+       } else {
          return false;
        }
     }

@@ -8,10 +8,14 @@ import acm.graphics.GRectangle;
  * @author mauro
  *
  */
-public class Soldat extends SoldatGeneral{
+public class Soldat extends SoldatGeneral {
 
 
-  public Soldat(GImage imatgeSoldat) {
+  /**
+   * Constructor del Soldat base.
+   * @param imatgeSoldat imatge d'aquest soldat.
+   */
+  public Soldat(final GImage imatgeSoldat) {
     super(imatgeSoldat);
 
   }
